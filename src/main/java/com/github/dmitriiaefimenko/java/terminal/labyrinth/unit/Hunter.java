@@ -47,7 +47,7 @@ public class Hunter {
     {
         initPosition();
 
-        direction = TerminalLabyrinthApp.random.nextInt(4);
+        direction = TerminalLabyrinthApp.RANDOM.nextInt(4);
 
         calculateStep();
 
@@ -180,7 +180,7 @@ public class Hunter {
                 direction = direction == 2 ? 3 : 2;
             }
         } else {
-            direction = paths.get(TerminalLabyrinthApp.random.nextInt(paths.size()));
+            direction = paths.get(TerminalLabyrinthApp.RANDOM.nextInt(paths.size()));
         }
 
         calculateStep();
@@ -191,8 +191,8 @@ public class Hunter {
 
     private void initPosition() {
         do {
-            positionY = TerminalLabyrinthApp.random.nextInt(1,Map.MAP_HEIGHT - 1);
-            positionX = TerminalLabyrinthApp.random.nextInt(1,Map.MAP_WIDTH - 1);
+            positionY = TerminalLabyrinthApp.RANDOM.nextInt(1,Map.MAP_HEIGHT - 1);
+            positionX = TerminalLabyrinthApp.RANDOM.nextInt(1,Map.MAP_WIDTH - 1);
         } while (MapSystem.getCharAt(positionY, positionX) != ElementChar.EMPTY);
         oldPositionY = (int) positionY;
         oldPositionX = (int) positionX;

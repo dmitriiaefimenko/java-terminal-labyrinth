@@ -28,7 +28,7 @@ public class MapSystem {
 
         int index = TerminalLabyrinthApp.ENABLE_DEBUG_MAP
                 ? maps.size() - 1
-                : TerminalLabyrinthApp.random.nextInt(maps.size() - 1);
+                : TerminalLabyrinthApp.RANDOM.nextInt(maps.size() - 1);
 
         initMapData(maps.get(index));
         placeExit();
@@ -66,8 +66,8 @@ public class MapSystem {
         int exitPositionX;
         while (true) {
             do {
-                exitPositionY = TerminalLabyrinthApp.random.nextInt(Map.MAP_HEIGHT);
-                exitPositionX = TerminalLabyrinthApp.random.nextInt(Map.MAP_WIDTH);
+                exitPositionY = TerminalLabyrinthApp.RANDOM.nextInt(Map.MAP_HEIGHT);
+                exitPositionX = TerminalLabyrinthApp.RANDOM.nextInt(Map.MAP_WIDTH);
             } while (MAP_DATA[exitPositionY][exitPositionX] != ElementChar.WALL);
             if (exitPositionY + 1 < Map.MAP_HEIGHT && MAP_DATA[exitPositionY + 1][exitPositionX] == ElementChar.EMPTY
                     || exitPositionY - 1 >= 0 && MAP_DATA[exitPositionY - 1][exitPositionX] == ElementChar.EMPTY

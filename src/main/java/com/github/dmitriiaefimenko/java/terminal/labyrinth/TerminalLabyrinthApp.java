@@ -11,14 +11,14 @@ import java.util.concurrent.TimeUnit;
 
 public class TerminalLabyrinthApp {
 
-    public static Random random             = new Random();
-
+    private static final long FPS_MESSAGE   = 1000 / 30;
+    private static final long FPS_ACTION    = 1000 / 60;
     public static boolean ENABLE_DEBUG_MAP  = false;
     public static boolean RENDER_MAP        = false;
-
     public static long TIME_LIMIT_MINUTES   = 5;
     public static int CARD_NUMBER           = 3;
 
+    public static final Random RANDOM       = new Random();
     public static boolean ENTER_LABYRINTH   = false;
 
     public static void main(String[] args) throws InterruptedException, InvocationTargetException {
@@ -29,7 +29,7 @@ public class TerminalLabyrinthApp {
         SoundSystem.initLogoSound();
         while (!ENTER_LABYRINTH) {
             RenderSystem.runLogoRenderingCycle();
-            TimeUnit.MILLISECONDS.sleep(1000 / 30);
+            TimeUnit.MILLISECONDS.sleep(FPS_MESSAGE);
         }
 
         SoundSystem.initMainSound();
@@ -40,7 +40,7 @@ public class TerminalLabyrinthApp {
                 SoundSystem.muteSound();
                 while (true) {
                     RenderSystem.runSurvivedRenderingCycle();
-                    TimeUnit.MILLISECONDS.sleep(1000 / 30);
+                    TimeUnit.MILLISECONDS.sleep(FPS_MESSAGE);
                 }
             }
             HunterSystem.moveHunters();
@@ -48,18 +48,18 @@ public class TerminalLabyrinthApp {
                 SoundSystem.muteSound();
                 while (true) {
                     RenderSystem.runDeathRenderingCycle(Message.DEATH_BY_HUNTER);
-                    TimeUnit.MILLISECONDS.sleep(1000 / 30);
+                    TimeUnit.MILLISECONDS.sleep(FPS_MESSAGE);
                 }
             }
             if (TimerSystem.isReachedTimeLimit()) {
                 SoundSystem.muteSound();
                 while (true) {
                     RenderSystem.runDeathRenderingCycle(Message.DEATH_BY_TIME_LIMIT);
-                    TimeUnit.MILLISECONDS.sleep(1000 / 30);
+                    TimeUnit.MILLISECONDS.sleep(FPS_MESSAGE);
                 }
             }
             RenderSystem.runMainRenderingCycle();
-            TimeUnit.MILLISECONDS.sleep(1000 / 60);
+            TimeUnit.MILLISECONDS.sleep(FPS_ACTION);
         }
     }
 }

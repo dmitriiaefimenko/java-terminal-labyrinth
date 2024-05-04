@@ -25,7 +25,7 @@ public class RenderSystem {
         char[] messageChars = Message.LOGO.toCharArray();
         for (int i = 0; i < messageChars.length; i++) {
             if (messageChars[i] == '#') {
-                messageChars[i] = TerminalLabyrinthApp.random.nextInt(2) == 0
+                messageChars[i] = TerminalLabyrinthApp.RANDOM.nextInt(2) == 0
                         ? RenderChar.LOGO_1
                         : RenderChar.LOGO_2;
             }
@@ -56,7 +56,7 @@ public class RenderSystem {
         char[] messageChars = message.toCharArray();
         for (int i = 0; i < messageChars.length; i++) {
             if (messageChars[i] == '#') {
-                messageChars[i] = TerminalLabyrinthApp.random.nextInt(2) == 0
+                messageChars[i] = TerminalLabyrinthApp.RANDOM.nextInt(2) == 0
                         ? char1
                         : char2;
             }

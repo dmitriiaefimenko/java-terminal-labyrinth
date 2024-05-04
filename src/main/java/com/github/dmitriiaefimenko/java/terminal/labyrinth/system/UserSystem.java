@@ -29,8 +29,8 @@ public class UserSystem {
 
     static {
         do {
-            positionY = TerminalLabyrinthApp.random.nextInt(Map.MAP_HEIGHT - 1) + 1;
-            positionX = TerminalLabyrinthApp.random.nextInt(Map.MAP_WIDTH - 1) + 1;
+            positionY = TerminalLabyrinthApp.RANDOM.nextInt(Map.MAP_HEIGHT - 1) + 1;
+            positionX = TerminalLabyrinthApp.RANDOM.nextInt(Map.MAP_WIDTH - 1) + 1;
         } while (MapSystem.getCharAt(positionY, positionX) != ElementChar.EMPTY);
         positionY += 0.5;
         positionX += 0.5;
